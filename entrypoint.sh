@@ -6,6 +6,7 @@ export REVIEWDOG_GITHUB_API_TOKEN="${INPUT_GITHUB_TOKEN}"
 
 INPUT_REVIEWDOG_FLAGS=$INPUT_REVIEWDOG_FLAGS
 if [ -n "$INPUT_DIRECTORY" ]; then
+  set -x
   path=$INPUT_DIRECTORY
   path=$(echo "$path" | sed 's/^\/\(.*\)\/$/\1/g')
   count=$(echo "$path" | awk -F"/" '{print NF-1}')
