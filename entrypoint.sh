@@ -9,8 +9,8 @@ if [ -n "$INPUT_DIRECTORY" ]; then
   path=$INPUT_DIRECTORY
   path=$(echo "$path" | sed 's/^\/\(.*\)\/$/\1/g')
   count=$(echo "$path" | awk -F"/" '{print NF-1}')
-  [ -n "$path" ] && [ "$count" -eq 0 ] && count=1
-  [ "$count" -gt 0 ] && count=$(("$count" + 1))
+  [ -n "$path" ] && [ "$count" = "0" ] && count=1
+  [ "$count" != "0" ] && count=$(("$count" + 1))
   INPUT_REVIEWDOG_FLAGS=${INPUT_REVIEWDOG_FLAGS:--strip $count}
 fi
 
